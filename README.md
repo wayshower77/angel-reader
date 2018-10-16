@@ -132,6 +132,11 @@ available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.ht
 For answers to common questions about this code of conduct, see
 https://www.contributor-covenant.org/faq
 
+#### Source Code
+
+The AngelReader source code is also available from its main repository in Github:
+(https://github.com/wayshower77/angel-reader)
+
 
 
   
