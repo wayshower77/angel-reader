@@ -13,7 +13,7 @@
   
 #### Binary Files
   
-  The complete binary files for the Windows OS platforms can now be downloaded 
+  The complete binary files for the Windows OS platform can now be downloaded 
   from [the Sourceforge website] (https://sourceforge.net/projects/angelreader)
   for the awesome experience of the AngelReader app. This is the latest AngelReader
   version 1.4 release.
@@ -21,7 +21,9 @@
   Earlier standalone library releases (just from last September, 2018),  but without
   the AngelReader Library Selector, are also available from [the OSDN website]
   (https://osdn.net/projects/angel-reader-01). These earlier binary releases are 
-  also for the Windows OS platforms.
+  also for the Windows OS platform.
+  
+  The download files for the Linux distros will follow soon in future releases.
   
 #### Features
 
@@ -31,7 +33,7 @@
   * user friendly menus
   * easy to understand functions
   * open source software
-  * cross platform
+  * cross platforms
   * minimalist but powerful
   * can be personalized or tailor-made according to
   the wants of an individual, a company, a school
