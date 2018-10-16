@@ -21,6 +21,7 @@
 # AngelReader Library Selector
 # Date: October 02, 2018. 3:17am
 # Author: D.A.E. (wayshower.de@gmail.com)
+
 import tkinter as tk
 
 root = tk.Tk()
@@ -28,6 +29,7 @@ root.config(bg="light cyan")
 root.title("ANGEL READER LIBRARY SELECTOR | DAE-MAN PROJECT")
 root.iconbitmap('icons/angel_icon.ico')
 
+# Functions initialized
 def select_library():
     if variable.get() == "James Allen Library 1":               
         import angel_reader_allen_release

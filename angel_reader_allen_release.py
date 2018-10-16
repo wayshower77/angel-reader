@@ -27,6 +27,7 @@ root = tk.Toplevel()
 root.title("ANGEL READER | JAMES ALLEN LIBRARY 1")
 root.iconbitmap('icons/angel_icon.ico')
 
+# Functions initialized
 def close(event=None):
     if root:
         root.grab_release()
@@ -105,31 +106,31 @@ def display_book():
     xscrollbar.config(command=sh_txt.xview)
     yscrollbar.config(command=sh_txt.yview)
     
-def push_button1():
-    global txt_frame, button_1, button_2
-    button_1 = True        
-    if button_2 == True:
+def infos_button_clicked():
+    global txt_frame, infos_button_ON, ebooks_button_ON
+    infos_button_ON = True        
+    if ebooks_button_ON == True:
         txt_frame.destroy()
     else:
         pass
-    if button_1 == True:
+    if infos_button_ON == True:
         txt_button.config(state='normal')        
         display_infos()
         gutenberg_button.config(state='disabled') 
         
-def push_button2():
-    global txt_frame2, button_1, button_2
-    button_2 = True        
-    if button_1 == True: 
+def ebooks_button_clicked():
+    global txt_frame2, infos_button_ON, ebooks_button_ON
+    ebooks_button_ON = True        
+    if infos_button_ON == True: 
         txt_frame2.destroy()
     else:
         pass
-    if button_2 == True:
+    if ebooks_button_ON == True:
         gutenberg_button.config(state='normal')
         display_book()
         txt_button.config(state='disabled')
 
-def push_button3():
+def audiobooks_button_clicked():
     global music_title   
 
     if audio_var.get() == "James Allen's As A Man Thinketh 01":
@@ -206,18 +207,20 @@ def play_audio():
     mixer.music.load(music_title)
     mixer.music.play()
 
-def push_button4():
+def stop_button_clicked():
     mixer.music.stop()
 
-def push_button5():
+def pause_button_clicked():
     mixer.music.pause()
 
-def push_button6():
+def resume_button_clicked():
     mixer.music.unpause()
         
 
-button_1 = False
-button_2 = False
+infos_button_ON = False
+ebooks_button_ON = False
+
+# Text files
 file_1 = 'ebooks/allen-added.txt'
 file_2 = 'ebooks/allen-byways.txt'
 file_3 = 'ebooks/allen-peace.txt'
@@ -229,6 +232,7 @@ f_2 = 'infos/as_a_man_thinketh_info.txt'
 f_3 = 'infos/kjvinfo_2.txt'
 f_4 = 'infos/way_of_peace_info.txt'
 
+# Audio files
 audio1 = "audiobooks/asamanthinketh_1_allen_64kb.mp3"
 audio2 = "audiobooks/asamanthinketh_2_allen_64kb.mp3"
 audio3 = "audiobooks/asamanthinketh_3_allen_64kb.mp3"
@@ -265,24 +269,24 @@ img_label['image'] = photo_image
 # Ebooks buttons with frame
 button_frame = tk.Frame(root, bd=2)
 button_frame.pack(fill=tk.X, side=tk.BOTTOM)
-gutenberg_button = tk.Button(button_frame, text='E-Book Infos', fg='red', bg='yellow green', disabledforeground='yellow', command=push_button1)
+gutenberg_button = tk.Button(button_frame, text='E-Book Infos', fg='red', bg='yellow green', disabledforeground='yellow', command=infos_button_clicked)
 gutenberg_button.pack(fill=tk.X)
 txt_button = tk.Button(button_frame, text='CLICK TO LOAD E-BOOK',
-                       fg='white', bg='royalblue2', disabledforeground='green', command=push_button2)
+                       fg='white', bg='royalblue2', disabledforeground='green', command=ebooks_button_clicked)
 txt_button.pack(fill=tk.X)
 
 # Audio buttons with frame
 audio_frame = tk.Frame(root, bd=2)
 audio_frame.pack(side=tk.BOTTOM)
 audio_button = tk.Button(audio_frame, text='CLICK TO LOAD AUDIO-BOOK',
-                         fg='red', bg='seagreen1', command=push_button3)
+                         fg='red', bg='seagreen1', command=audiobooks_button_clicked)
 audio_button.pack(fill=tk.X, side=tk.TOP)
 stop_button = tk.Button(audio_frame, text='STOP', 
-                        fg='white', bg='tan2', disabledforeground='purple3', command=push_button4)
+                        fg='white', bg='tan2', disabledforeground='purple3', command=stop_button_clicked)
 stop_button.pack(side=tk.LEFT, ipadx=12)  # put inner paddings for balanced placement in the frame
-pause_button = tk.Button(audio_frame, text='PAUSE', fg='white', bg='tan2', command=push_button5)
+pause_button = tk.Button(audio_frame, text='PAUSE', fg='white', bg='tan2', command=pause_button_clicked)
 pause_button.pack(side=tk.LEFT, ipadx=4)
-resume_button = tk.Button(audio_frame, text='RESUME', fg='white', bg='tan2', command=push_button6)
+resume_button = tk.Button(audio_frame, text='RESUME', fg='white', bg='tan2', command=resume_button_clicked)
 resume_button.pack(side=tk.LEFT)
 
 # Option menu with Label
